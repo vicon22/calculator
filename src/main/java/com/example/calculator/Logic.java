@@ -26,9 +26,9 @@ public class Logic {
     }
 
     public String persent(String mutable){
-        if (mutable.contains(".")){
-            //mutable = mutable.substring(1);
-        }
+        float ans = Float.parseFloat(mutable);
+        ans = ans/100;
+        mutable = Float.toString(ans);
 
         return (mutable);
     }

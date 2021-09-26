@@ -69,23 +69,32 @@ public class HelloController {
     @FXML
     protected void getAnswer() {
 
-        int ans = 999999;
+        //int ans = 999999;
+        float ans = (float) 9999.0;
 
         if (logic.switcher == 1) {
-            ans = Integer.parseInt(logic.bar_2) / Integer.parseInt(logic.bar);
+            ans = Float.parseFloat(logic.bar_2) / Float.parseFloat(logic.bar);
         }
         if (logic.switcher == 2) {
-            ans = Integer.parseInt(logic.bar_2) * Integer.parseInt(logic.bar);
+            ans = Float.parseFloat(logic.bar_2) * Float.parseFloat(logic.bar);
         }
         if (logic.switcher == 3) {
-            ans = Integer.parseInt(logic.bar_2) - Integer.parseInt(logic.bar);
+            ans = Float.parseFloat(logic.bar_2) - Float.parseFloat(logic.bar);
         }
         if (logic.switcher == 4) {
-            ans = Integer.parseInt(logic.bar_2) + Integer.parseInt(logic.bar);
+            ans = Float.parseFloat(logic.bar_2) + Float.parseFloat(logic.bar);
         }
 
-        logic.answer = Integer.toString(ans);
+        logic.answer = Float.toString(ans);
+        if (logic.answer.indexOf(".0") + 2 == logic.answer.length()){
+            logic.answer = Integer.toString((int) ans);
+        }
         welcomeText.setText(logic.answer);
+        //System.out.println("logic.answer:" + logic.answer);
+        //System.out.println("logic.answer.indexOf:" + logic.answer.indexOf(".0"));
+        //System.out.println("logic.bar:" + logic.bar);
+        //System.out.println("logic.bar_2:" + logic.bar_2);
+        logic.bar = logic.answer;
     }
 
     @FXML
